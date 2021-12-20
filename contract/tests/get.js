@@ -20,10 +20,16 @@ async function main() {
         );
         console.log('Testing registered identity..')
         console.log('--')
-        const identityOfAddress = await nftContract.methods.returnIdentityByAddress(configs.owner_address).call();
+        const identityOfAddress = await nftContract.methods.returnAddressByName("evmos2").call();
         console.log('Identity of address is:', identityOfAddress)
-        const addressOfIdentity = await nftContract.methods.returnIdentityByName("evmos").call();
-        console.log('Address of identity is:', addressOfIdentity)
+        const ownedByAddress = await nftContract.methods.returnOwnedByAddress(identityOfAddress).call();
+        console.log('Address owns', ownedByAddress, 'identities')
+        for (i = 0; i <= ownedByAddress; i++) {
+            const addressOfIdentity = await nftContract.methods.returnNameByAddress(identityOfAddress, i).call();
+            if (addressOfIdentity !== "") {
+                console.log('Address of identity is:', addressOfIdentity)
+            }
+        }
         process.exit();
     } catch (e) {
         console.log(e.message)

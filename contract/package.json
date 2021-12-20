@@ -7,6 +7,7 @@
         "extract-abi": "truffle-export-abi -d ./build/contracts/ -o ./abi.json -v",
         "test:set": "node tests/set.js",
         "test:get": "node tests/get.js",
+        "test:transfer": "node tests/transfer.js",
         "deploy": "node deploy.js"
     },
     "author": "dev@nftstud.io",
