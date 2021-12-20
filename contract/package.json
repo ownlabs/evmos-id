@@ -8,6 +8,7 @@
         "test:set": "node tests/set.js",
         "test:get": "node tests/get.js",
         "test:transfer": "node tests/transfer.js",
+        "test:changelink": "node tests/changeLink.js",
         "deploy": "node deploy.js"
     },
     "author": "dev@nftstud.io",

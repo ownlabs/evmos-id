@@ -23,7 +23,7 @@ async function main(minter) {
             const nonce = await web3Instance.eth.getTransactionCount(configs.owner_address)
             console.log('Trying registering ID with nonce ' + nonce + '...')
             const result = await nftContract.methods
-                .setIdentity("evmos3")
+                .setIdentity("evmos")
                 .send({ from: configs.owner_address, nonce: nonce, gasPrice: gasPrice }).on('transactionHash', pending => {
                     console.log('Pending transaction at ' + pending)
                 });
